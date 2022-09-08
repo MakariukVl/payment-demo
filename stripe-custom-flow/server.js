@@ -27,13 +27,29 @@ app.post('/create-payment-intent', async (req, res) => {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(items),
-        currency: 'usd',
-        automatic_payment_methods: {
-            enabled: true
-        }
+        // currency: 'usd',
+        // automatic_payment_methods: {
+        //     enabled: true
+        // }
+        // test manual pay methods
+        currency: 'eur',
+        payment_method_types: [
+            'card',
+            'bancontact',
+            'eps',
+            'giropay',
+            'ideal',
+            'p24',
+            'sepa_debit',
+            'sofort'
+        ]
     })
 
     res.send({
+        status: paymentIntent.status,
+        amount: paymentIntent.amount,
+        clientId: paymentIntent.id,
+        currency: paymentIntent.currency,
         clientSecret: paymentIntent.client_secret
     })
 })
