@@ -7,7 +7,6 @@
     "start": "node server.js",
     "publish": "ngrok http 4242",
     "serve": "nodemon server.js",
-    "debug": "* $ DEBUG=express:* node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

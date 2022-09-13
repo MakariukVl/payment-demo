@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "serve": "nodemon server.js",
-    "debug": "*$ DEBUG=express:* node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
